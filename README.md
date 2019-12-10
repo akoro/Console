@@ -13,7 +13,7 @@ Command line:
 
     ...
 
-    void handler1(ArgList& L, Stream& S) // command line is "command1 45:32 start"
+    <font color=blue>void</font> handler1(ArgList& L, Stream& S) // command line is "command1 45:32 start"
     {
       String a1 = L.getNextArg(':'); // delimiter is semicolon, the first arg is "45"
       String a2 = L.getNextArg(); // delimiter is space, the second arg is "32"
