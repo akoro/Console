@@ -1,9 +1,11 @@
 # Console
 *Small console class for embedded systems*
+
+Based on c++11 for Arduino framework
 ***
 ### Command line: `<command>[ <arg1>[ <arg2>[ ...]]]`
 
-## Usage:
+## Usage example:
 ```cpp
 #include "console.h"
 //...
@@ -17,7 +19,7 @@ void handler1(ArgList& L, Stream& S) // command line is "command1 45:32 start"
   String a3 = L.getNextArg(); // the third arg is "start"
   //...
   String an = L.getNextArg();
-  // if L.getNextArg() returns empty string then no more arguments in the command line
+  // if L.getNextArg() returns an empty string then no more arguments in the command line
   //...
   S.print("hello!");
 }
@@ -25,6 +27,14 @@ void handler1(ArgList& L, Stream& S) // command line is "command1 45:32 start"
 void handler2(ArgList& L, Stream& S)
 {
   //...
+}
+
+void test(ArgList& L, Stream& S)
+{  // you can enumerate all argumenth by the next code
+  String p;
+  int i=0;
+  while(!(p = L.getNextArg()).isEmpty())
+    S.printf("arg%d = \"%s\"\n", i++, p.c_str());
 }
 
 void wrong_command(String& L, Stream& S)
@@ -38,6 +48,7 @@ setup()
   //...
   con.onCmd("command1", handler1);
   con.onCmd("command2", handler2);
+  con.onCmd("test", test);
   con.onUnknown(wrong_command);
   con.start(); // prompt will appear here
 }
