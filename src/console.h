@@ -4,6 +4,8 @@
 
 #include <map>
 
+#define DEF_PROMPT ">"
+
 class ArgList
 {
   public:
@@ -20,11 +22,10 @@ using HUnknown = void(*)(String&, Stream&);
 class Console
 {
   public:
-  Console(Stream* s) {line.clear(); handlers.clear(); dev = s; defPrompt(); unknown = nullptr;}
+  Console(Stream* s) {line.clear(); handlers.clear(); dev = s; prompt=DEF_PROMPT; unknown = nullptr;}
   Console(void): Console(&Serial){}
-  void setPrompt(const String p){prompt = p;}
-  void defPrompt(void){prompt = ">";}
-  void start(void){line.clear(); dev->println(); dev->print(prompt);}
+  void setPrompt(const String p = DEF_PROMPT) {prompt = p;}
+  void start(void) {line.clear(); dev->println(); dev->print(prompt);}
   void run(void);
   bool busy(void) const {return !line.isEmpty();}
   Stream& stream(void) const {return *dev;};
