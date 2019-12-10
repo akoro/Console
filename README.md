@@ -5,6 +5,8 @@
 
 ## Usage:
 ```cpp
+#include "console.h"
+...
 Console con(&Serial); // Serial is descendant of Stream.
                       // Serial is default, you can just write: Console con;
 ...
