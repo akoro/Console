@@ -103,4 +103,4 @@ Class **ArgList** has single method
 ```cpp
 String getNextArg(const char del = ' ')
 ```
-returns the first argument delimited by the **del** symbol from the next one. Each next call of the method allows you get the hext argument. If the function returns an empty string it means no more arguments in the command line. The arguments list can be accessed in command handlers only.
+returns the first argument delimited by the **del** symbol from the next one. Each next call of the method allows you get the hext argument. If the function returns an empty string it means no more arguments in the command line. The arguments list can be accessed in command handlers only. Default delimiter is space.
