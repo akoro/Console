@@ -6,7 +6,7 @@
 `<command> [ <arg1>[ <arg2>[ ...]]]`
 
 ## Usage:
-```c++
+```cpp
 Console con(&Serial); // Serial is descendant of Stream.
                       // Serial is default, you can just write: Console con;
 ...
@@ -22,30 +22,30 @@ void handler1(ArgList& L, Stream& S) // command line is "command1 45:32 start"
   S.print("hello!");
 }
 
-    void handler2(ArgList& L, Stream& S)
-    {
-      ...
-    }
+void handler2(ArgList& L, Stream& S)
+{
+  ...
+}
 
-    void wrong_command(String& L, Stream& S)
-    {
-      S.print("what is the commamd? ");
-      S.println(L);
-    }
+void wrong_command(String& L, Stream& S)
+{
+  S.print("what is the commamd? ");
+  S.println(L);
+}
 
-    setup()
-    {
-      ...
-      con.onCmd("command1", handler1);
-      con.onCmd("command2", handler2);
-      con.onUnknown(wrong_command);
-      con.start();
-    }
+setup()
+{
+  ...
+  con.onCmd("command1", handler1);
+  con.onCmd("command2", handler2);
+  con.onUnknown(wrong_command);
+  con.start();
+}
 
-    loop()
-    {
-      ...
-      con.run();
-      ...
-    }
+loop()
+{
+  ...
+  con.run();
+  ...
+}
 ```
