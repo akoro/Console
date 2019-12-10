@@ -1,7 +1,7 @@
 # Console
 *Small console class for embedded systems*
 ***
-## Command line: `<command> [ <arg1>[ <arg2>[ ...]]]`
+### Command line: `<command>[ <arg1>[ <arg2>[ ...]]]`
 
 ## Usage:
 ```cpp
