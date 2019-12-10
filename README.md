@@ -1,5 +1,5 @@
 # Console
-Small console class for embedded systems
+<h1>Small console class for embedded systems</>
 
 command line: 
 <command> [ <arg1>[ <arg2>[ ...]]]
