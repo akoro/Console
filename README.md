@@ -104,8 +104,3 @@ Class **ArgList** has single method
 String getNextArg(const char del = ' ')
 ```
 returns the first argument delimited by the **del** symbol from the next one. Each next call of the method allows you get the hext argument. If the function returns an empty string it means no more arguments in the command line. The arguments list can be accessed in command handlers only. Default delimiter is space.
-
-Method                                     | Description
--------------------------------------------|----------------------
-`void onCmd(const String&, const Handler)` | here **Handler** is function address: `typedef void (*Handler)(ArgList&, Stream&)`. **ArgList** - command arguments list, **Stream** - console stream referense.
-reset.css                                  | Reset CSS от Эрика Мейера
