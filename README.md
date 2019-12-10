@@ -69,3 +69,13 @@ void setPrompt(const String p = '>')
 ```cpp
 void start(void)
 ```
+3. Run console in ethernal cycle
+```cpp
+void run(void)
+```
+4. Input is bysy
+```cpp
+bool busy(void)
+```
+It is useful if your program continuously outputs some info and when you need input a command the program will stop output the info.
+
