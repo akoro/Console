@@ -61,8 +61,11 @@ loop()
 }
 ```
 ## Class method description
-1. set a new prompt
-
+1. Set a new prompt
 ```cpp 
 void setPrompt(const String p = '>')
 ``` 
+2. Start console. It makes CR, LF and put the prompt
+```cpp
+void start(void)
+```
