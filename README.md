@@ -1,11 +1,11 @@
 # Console
 *Small console class for embedded systems*
 ***
-Command line:
+## Command line:
 
 `<command> [ <arg1>[ <arg2>[ ...]]]`
 
-**Usage:**
+## Usage:
 
     Console con(&Serial); // Serial is descendant of Stream.
 
