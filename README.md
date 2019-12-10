@@ -105,14 +105,7 @@ String getNextArg(const char del = ' ')
 ```
 returns the first argument delimited by the **del** symbol from the next one. Each next call of the method allows you get the hext argument. If the function returns an empty string it means no more arguments in the command line. The arguments list can be accessed in command handlers only. Default delimiter is space.
 
-Название файла  | Содержание файла
-----------------|----------------------
-style.css       | Пустой файл каскадной таблицы стилей, в который производится сбока необходимых стилей
-reset.css       | Reset CSS от Эрика Мейера
-normalize.css   | Нормалайзер CSS от Nicolas Gallagher
-block.css       | Основные стили блоков системы
-addition.css    | Дополнительные стили
-fontawesome.css | Стили иконочного шрифта
-layout.css      | Основные стили, применительно к определённому сайту
-lightbox.css    | Стили лайтбокса, если таковой используется
-index.html      | Индексный файл для проверки вносимых изменений
+Method                                     | Description
+-------------------------------------------|----------------------
+`void onCmd(const String&, const Handler)` | here **Handler** is function address: `typedef void (*Handler)(ArgList&, Stream&)`. **ArgList** - command arguments list, **Stream** - console stream referense.
+reset.css                                  | Reset CSS от Эрика Мейера
