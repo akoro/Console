@@ -39,7 +39,7 @@ setup()
   con.onCmd("command1", handler1);
   con.onCmd("command2", handler2);
   con.onUnknown(wrong_command);
-  con.start();
+  con.start(); // prompt will appear here
 }
 
 loop()
