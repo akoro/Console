@@ -1,6 +1,6 @@
 # Console
 *Small console class for embedded systems*
-
+***
 Command line:
 
 `<command> \[ <arg1>\[ <arg2>\[ ...\]\]\]`
