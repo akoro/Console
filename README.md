@@ -60,7 +60,7 @@ loop()
   //...
 }
 ```
-## Class method description
+## Class methods description
 ### 1. Set a new prompt
 ```cpp 
 void setPrompt(const String p = '>')
