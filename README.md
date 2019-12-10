@@ -7,7 +7,7 @@ command line:
 Usage:
 
 Console con(&Serial); // Serial is descendant of Stream. 
-// Serial is default, you can just write: Console con;
+                      // Serial is default, you can just write: Console con;
 ...
 
 void handler1(ArgList& L, Stream& S) // command line is "command1 45:32 start"
