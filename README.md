@@ -6,7 +6,7 @@
 `<command> [ <arg1>[ <arg2>[ ...]]]`
 
 ## Usage:
-
+```html
     Console con(&Serial); // Serial is descendant of Stream.
 
     // Serial is default, you can just write: Console con;
@@ -51,3 +51,4 @@
       con.run();
       ...
     }
+```
