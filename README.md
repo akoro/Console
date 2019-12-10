@@ -3,7 +3,9 @@
 
 Based on c++11 for Arduino framework
 ***
-### Command line: `<command>[ <arg1>[ <arg2>[ ...]]]`
+Console used for parsing and handling commands from user console interface based on different interfaces (serial port, telnet etc.) It implements the next format of command line: 
+
+`<command>[ <arg1>[ <arg2>[ ...]]]`
 
 ## Usage example:
 ```cpp
