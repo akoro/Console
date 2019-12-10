@@ -61,5 +61,8 @@ loop()
 }
 ```
 ## Class method description
-```cpp void setPrompt(const String p = '>')``` set a new prompt
+1. set a new prompt
 
+```cpp 
+void setPrompt(const String p = '>')
+``` 
