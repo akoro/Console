@@ -3,7 +3,7 @@
 ***
 Command line:
 
-`<command> \[ <arg1>\[ <arg2>\[ ...\]\]\]`
+`<command> [ <arg1>[ <arg2>[ ...]]]`
 
 **Usage:**
 
