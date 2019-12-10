@@ -73,9 +73,19 @@ void start(void)
 ```cpp
 void run(void)
 ```
-4. Input is bysy
+4. Input is busy
 ```cpp
 bool busy(void)
 ```
+returns **true** if you start input a command.
 It is useful if your program continuously outputs some info and when you need input a command the program will stop output the info.
+5. 
+```cpp
+Stream& stream(void)
+```
+and
+```cpp
+Stream& operator()(void)
+```
+Returns a reference to console stream. Usage: `con().println();` or `con.stream.println();`
 
