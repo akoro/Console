@@ -61,25 +61,25 @@ loop()
 }
 ```
 ## Class method description
-###1. Set a new prompt
+### 1. Set a new prompt
 ```cpp 
 void setPrompt(const String p = '>')
 ``` 
-###2. Start console. It makes CR, LF and put the prompt
+### 2. Start console. It makes CR, LF and put the prompt
 ```cpp
 void start(void)
 ```
-###3. Run console in ethernal cycle
+### 3. Run console in ethernal cycle
 ```cpp
 void run(void)
 ```
-###4. Input is busy
+### 4. Input is busy
 ```cpp
 bool busy(void)
 ```
 returns **true** if you start input a command.
 It is useful if your program continuously outputs some info and when you need input a command the program will stop output the info.
-###5. Get console stream referense
+### 5. Get console stream referense
 ```cpp
 Stream& stream(void)
 ```
@@ -88,12 +88,12 @@ and
 Stream& operator()(void)
 ```
 Returns a reference to console stream. Usage: `con().println();` or `con.stream.println();`
-###6. Set command handler
+### 6. Set command handler
 ```cpp
 void onCmd(const String&, const Handler)
 ```
 here **Handler** is function address: `typedef void (*Handler)(ArgList&, Stream&)`. **ArgList** - command arguments list, **Stream** - console stream referense.
-###7. Set unknown command handle
+### 7. Set unknown command handle
 ```cpp
 void onUnknown(HUnknown u)
 ```
