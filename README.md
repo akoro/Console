@@ -103,7 +103,7 @@ void onUnknown(HUnknown u)
 ```
 here **UHandler** is function address: `typedef void (*UHandler)(String&, Stream&)`. **String** - whole command line
 
-### 8. Class **ArgList** has single method
+### 8. Class **ArgList** has two methods:
 #### Getting separate arguments from command line
 ```cpp
 String getNextArg(const char del = ' ')
