@@ -9,6 +9,8 @@ Console used for parsing and handling commands from user console interface based
 
 ### `<command>[ <arg1>[ <arg2>[ ...]]]`
 
+Just add the files **console.cpp** and **console.h** to your project and enjoy.
+
 ## Usage example:
 ```cpp
 #include "console.h"
