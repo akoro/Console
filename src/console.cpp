@@ -1,4 +1,7 @@
 /*
+Simple user console
+Can be used on any Arduino compatible board
+V1.0 2019-12-12
 */
 #include <Arduino.h>
 #include "console.h"

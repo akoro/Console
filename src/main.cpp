@@ -1,3 +1,7 @@
+/*
+Test console
+Used ESP32 for example
+*/
 #include <Arduino.h>
 #include "console.h"
 #include <driver/adc.h>

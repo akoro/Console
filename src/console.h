@@ -1,13 +1,15 @@
 /*
+Simple user console
+Can be used on any Arduino compatible board
+V1.0 2019-12-12
 */
-// 2019-12-06
 
 #pragma once
-
 #include <map>
 
-#define DEF_PROMPT ">"
+#define DEF_PROMPT ">" // Default prompt of console
 
+// helper for exttracting separate arguments of command line
 class ArgList
 {
   public:
@@ -18,9 +20,11 @@ class ArgList
   int idx;
 };
 
+// Command handlers types
 using Handler  = void(*)(ArgList&, Stream&);
 using HUnknown = void(*)(String&, Stream&);
 
+// Console class
 class Console
 {
   public:
