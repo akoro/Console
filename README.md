@@ -1,5 +1,5 @@
 # Console
-*Small console class for embedded systems*
+*Small user console class for embedded systems based on arduino framework*
 
 V1.0
 
