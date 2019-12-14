@@ -116,3 +116,4 @@ returns the first argument delimited by the **del** symbol from the next one. Ea
 ```cpp
 bool isEmpty(void)
 ```
+![Sample screenshot](https://yadi.sk/i/TbR-2j_FVWw8uA "Sample screenshot")
