@@ -1,9 +1,9 @@
 # Console
-*Small user console class for embedded systems based on arduino framework*
+*Small user console class for embedded systems based on arduino framework (C++11)*
 
 V1.0
 
-Based on c++11 for Arduino framework
+Developed and tested with [PlatformIO](https://platformio.org) IDE
 ***
 Console used for parsing and handling commands from user console interface based on different interfaces (serial port, telnet etc.) It implements the next format of command line:
 
