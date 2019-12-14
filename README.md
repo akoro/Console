@@ -102,9 +102,15 @@ here **Handler** is function address: `typedef void (*Handler)(ArgList&, Stream&
 void onUnknown(HUnknown u)
 ```
 here **UHandler** is function address: `typedef void (*UHandler)(String&, Stream&)`. **String** - whole command line
+
 ### 8. Getting separate arguments from command line
 Class **ArgList** has single method
 ```cpp
 String getNextArg(const char del = ' ')
 ```
 returns the first argument delimited by the **del** symbol from the next one. Each next call of the method allows you get the hext argument. If the function returns an empty string it means no more arguments in the command line. The arguments list can be accessed in command handlers only. Default delimiter is space.
+
+### 9. Arguments list is empty test
+```cpp
+bool isEmpty(void)
+```
