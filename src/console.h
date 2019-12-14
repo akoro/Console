@@ -7,14 +7,16 @@ V1.0 2019-12-12
 #pragma once
 #include <map>
 
-#define DEF_PROMPT ">" // Default prompt of console
+#define DEF_PROMPT ">"    // Default prompt of console
+#define DEF_DELIMITER ' ' // default args delimiter
 
 // helper for exttracting separate arguments of command line
 class ArgList
 {
   public:
   ArgList(String* p){args = p; idx = 0;}
-  String getNextArg(char del = ' ');
+  String getNextArg(char del = DEF_DELIMITER);
+  bool isEmpty(void) {return args->isEmpty();}
   private:
   String* args;
   int idx;
