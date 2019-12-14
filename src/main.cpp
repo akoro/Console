@@ -6,12 +6,9 @@
 #include <SPI.h>
 #include <time.h>
 #include <WiFi.h>
+#include "auth.h"
 
 #define LED 2
-//#define STASSID "Telecom-STV"
-//#define STAPSK  "TnD71xFNi3"
-#define STASSID "Dragon"
-#define STAPSK  "TgN399eA"
 #define CONN_ATTEMPTS 20
 
 const char* ssid     = STASSID;
