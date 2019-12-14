@@ -116,4 +116,7 @@ returns the first argument delimited by the **del** symbol from the next one. Ea
 ```cpp
 bool isEmpty(void)
 ```
+
+Screenshot of working example:
+
 ![Sample screenshot](https://github.com/akoro/Console/blob/master/screenshot.png "Sample screenshot")
