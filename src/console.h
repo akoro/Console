@@ -14,7 +14,7 @@ V1.0 2019-12-12
 class ArgList
 {
   public:
-  ArgList(String* p){args = p; idx = 0;}
+  ArgList(String* p): args(p), idx(0) {}
   String getNextArg(char del = DEF_DELIMITER);
   bool isEmpty(void) {return args->isEmpty();}
   private:
@@ -23,15 +23,14 @@ class ArgList
 };
 
 // Command handlers types
-using Handler  = void(*)(ArgList&, Stream&);
-using HUnknown = void(*)(String&, Stream&);
+using Handler  = void (*)(ArgList&, Stream&);
+using HUnknown = void (*)(String&, Stream&);
 
 // Console class
 class Console
 {
   public:
-  Console(Stream* s) {line.clear(); handlers.clear(); dev = s; prompt=DEF_PROMPT; unknown = nullptr;}
-  Console(void): Console(&Serial){}
+  Console(Stream* s = &Serial): dev(s), prompt(DEF_PROMPT), unknown(nullptr) {line.clear(); handlers.clear();}
   void setPrompt(const String p = DEF_PROMPT) {prompt = p;}
   void start(void) {line.clear(); dev->println(); dev->print(prompt);}
   void run(void);
