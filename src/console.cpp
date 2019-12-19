@@ -13,21 +13,21 @@ void Console::run(void)
   if(dev->available())
   {
     char c = dev->read();
-    if(c>=' ' && c<127) // ввод команды
+    if(c >= ' ' && c < 127) // command line input
     {
       line += c;
       dev->write(c);
     }
-    else if(c == '\r')  // команда принята,
+    else if(c == '\r')  // command accepted,
     {
       dev->write("\r\n");
       line.trim();
-      if(!line.isEmpty()) 
-        parse();        // разбор команды
+      if(!line.isEmpty())
+        parse();        // command parsing
       line.clear();
       dev->write(prompt.c_str());
     }
-    else if(!line.isEmpty() && (c == '\b' || c == 127)) // забой
+    else if(!line.isEmpty() && (c == '\b' || c == 127)) // backspace
     {
       line.remove(line.length()-1);
       dev->write("\b \b");
@@ -42,7 +42,7 @@ void Console::parse(void)
   cmd.trim();
   if(handlers.find(cmd) != handlers.end())
   {
-    String args = line.substring(line.indexOf(' '));
+    String args = (i != -1) ? line.substring(i) : "";
     args.trim();
     ArgList pl(&args);
     (*handlers[cmd])(pl, *dev);
@@ -57,16 +57,16 @@ void Console::parse(void)
 String ArgList::getNextArg(char del)
 {
   String p = "";
-  if(idx < 0) 
+  if(idx < 0)
     return p;
   int j = args->indexOf(del, idx);
   if(j > -1)
   {
-    p = args->substring(idx,j); 
+    p = args->substring(idx,j);
     while((*args)[++j] == ' ');
   }
   else
-    p = args->substring(idx); 
+    p = args->substring(idx);
   idx = j;
   return p;
 }
