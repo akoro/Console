@@ -21,5 +21,12 @@
   "platforms": "*",
   "examples": [
     "examples/*.cpp"
-  ]
+  ],
+  "export": {
+    "include": [
+	  "src/*.cpp",
+	  "src/*.h",
+	  "examples/*"
+    ]
+  }
 }
