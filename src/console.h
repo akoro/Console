@@ -42,6 +42,7 @@ class Console
   void onCmd(const String& t, const Handler h)
     {if(h != nullptr && !t.isEmpty()) handlers[t] = h;} // set handler for the command
   void onUnknown(HUnknown u) {unknown = u;}
+  void cmdList(void);
 
   private:
   std::map<String,Handler> handlers; // dictionary command:handler

@@ -54,6 +54,15 @@ void Console::parse(void)
       dev->println("?");
 }
 
+void Console::cmdList(void)
+{
+//  for(auto i = handlers.begin(); i != handlers.end(); i++)
+//    dev->println(i->first);
+    for(auto i: handlers)
+      dev->println(i.first);
+}
+
+
 String ArgList::getNextArg(char del)
 {
   String p = "";
