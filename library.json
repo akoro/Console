@@ -18,8 +18,8 @@
   "version": "1.0.1",
   "frameworks": "arduino",
   "platforms": [
-    "Espressif32",
-    "Espressif8266"
+    "espressif32",
+    "espressif8266"
     ],
   "examples": [
     "examples/*.cpp"
