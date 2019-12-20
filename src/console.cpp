@@ -1,12 +1,10 @@
 /*
 Simple user console
 Can be used on any Arduino compatible board
-V1.0 2019-12-12
+V1.0.1 2019-12-19
 */
 #include <Arduino.h>
 #include "console.h"
-
-// 2019-12-12
 
 void Console::run(void)
 {
@@ -56,8 +54,6 @@ void Console::parse(void)
 
 void Console::cmdList(void)
 {
-//  for(auto i = handlers.begin(); i != handlers.end(); i++)
-//    dev->println(i->first);
     for(auto i: handlers)
       dev->println(i.first);
 }

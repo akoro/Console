@@ -7,8 +7,7 @@
     "type": "git",
     "url": "https://github.com/akoro/Console.git"
   },
-  "authors":
-  [
+  "authors":[
     {
       "name": "Arkady Korotkevich",
       "email": "greengryphus@gmail.com",
@@ -18,7 +17,10 @@
   "dependencies": {},
   "version": "1.0.1",
   "frameworks": "arduino",
-  "platforms": "*",
+  "platforms": [
+    "Espressif 32",
+    "Espressif 8266"
+    ],
   "examples": [
     "examples/*.cpp"
   ],
