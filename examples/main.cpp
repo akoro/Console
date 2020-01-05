@@ -1,16 +1,17 @@
 /*
 Test console
-Used ESP32 for example
+ESP32 used for example
 */
 #include <Arduino.h>
-#include "console.h"
+#include <console.h>
 #include <driver/adc.h>
 
 #define LED 2
 
-// разбор команд
+// command parsing
 /******************************************************************/
 
+// display all command arguments
 void _test_(ArgList& L, Stream& S)
 {
   String p;
@@ -19,6 +20,7 @@ void _test_(ArgList& L, Stream& S)
     S.printf("arg%d = \"%s\"\n", i++, p.c_str());
 }
 
+// display ADC input and sensors
 void _adc_(ArgList& L, Stream& S)
 {
   for (int i = 0; i<8; i++)
@@ -32,6 +34,7 @@ void _adc_(ArgList& L, Stream& S)
   }
 }
 
+// LED on/off
 void _led_(ArgList& L, Stream&)
 {
   String p = L.getNextArg();
@@ -41,6 +44,7 @@ void _led_(ArgList& L, Stream&)
     digitalWrite(LED,LOW);
 }
 
+// unknown command
 void _unknown(String& L, Stream& S)
 {
   S.print("? ");
@@ -59,15 +63,21 @@ void setup()
   Serial.begin(115200);
   while (!Serial) yield();
   Serial.println(F("--- test console start"));
-  Serial.printf("F=%dMHz Heap=%d %02X\r\n",ESP.getCpuFreqMHz(), ESP.getHeapSize(), ESP.getChipRevision());
-  Serial.printf("FCS=%d FCS=%dHz FCM=%d\r\n",ESP.getFlashChipSize(), ESP.getFlashChipSpeed(), ESP.getFlashChipMode()); // 0=QIO, 1=QOUT, 2=DIO, 3=DOUT
+  Serial.printf("F=%dMHz Heap=%d %02X\r\n",
+    ESP.getCpuFreqMHz(), 
+    ESP.getHeapSize(), 
+    ESP.getChipRevision());
+  Serial.printf("FCS=%d FCS=%dHz FCM=%d\r\n",
+    ESP.getFlashChipSize(), 
+    ESP.getFlashChipSpeed(), 
+    ESP.getFlashChipMode());  // 0=QIO, 1=QOUT, 2=DIO, 3=DOUT
   
   // Console setup
   con.onCmd("test", _test_);
   con.onCmd("led",  _led_ );
   con.onCmd("adc",  _adc_ );
 //  con.onUnknown(_unknown);  
-  con.onUnknown([](String& L, Stream& S){S.print("? ");S.println(L);}); // лямбда-функция !
+  con.onUnknown([](String& L, Stream& S){S.print("? ");S.println(L);}); 
   con.start(); 
 }
 
