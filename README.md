@@ -75,17 +75,24 @@ void setPrompt(const String p = '>')
 ```cpp
 void start(void)
 ```
-### 3. Run console in ethernal cycle
-```cpp
-void run(void)
+### 3. Initialize the console
 ```
-### 4. Input is busy
+virtual bool begin(void)
+```
+Prepares working.
+It may be overrided by a descendant class
+Returns **true** if OK.
+### 4. Run console in ethernal cycle
+```cpp
+virtual void run(void)
+```
+### 5. Input is busy
 ```cpp
 bool busy(void)
 ```
 returns **true** if you start input a command.
 It is useful if your program continuously outputs some info and when you need input a command the program will stop output the info.
-### 5. Get console stream referense
+### 6. Get console stream referense
 ```cpp
 Stream& stream(void)
 ```
@@ -94,18 +101,18 @@ and
 Stream& operator()(void)
 ```
 Returns a reference to console stream. Usage: `con().println();` or `con.stream.println();`
-### 6. Set command handler
+### 7. Set command handler
 ```cpp
 void onCmd(const String&, const Handler)
 ```
 here **Handler** is function address: `typedef void (*Handler)(ArgList&, Stream&)`. **ArgList** - command arguments list, **Stream** - console stream referense.
-### 7. Set unknown command handle
+### 8. Set unknown command handle
 ```cpp
 void onUnknown(HUnknown u)
 ```
 here **UHandler** is function address: `typedef void (*UHandler)(String&, Stream&)`. **String** - whole command line
 
-### 8. Class **ArgList** has two methods:
+### 9. Class **ArgList** has two methods:
 #### Getting separate arguments from command line
 ```cpp
 String getNextArg(const char del = ' ')
@@ -117,6 +124,6 @@ returns the first argument delimited by the **del** symbol from the next one. Ea
 bool isEmpty(void)
 ```
 
-### 9. Screenshot of working example:
+### 10. Screenshot of working example:
 
 ![Sample screenshot](https://github.com/akoro/Console/blob/master/screenshot.png "Sample screenshot")
