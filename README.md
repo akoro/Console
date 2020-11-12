@@ -1,7 +1,7 @@
 # Console
 *Small user console class for embedded systems based on arduino framework (C++11)*
 
-V1.0.1
+V1.2.0
 
 Developed and tested with [PlatformIO](https://platformio.org) IDE
 ***
