@@ -1,34 +1,32 @@
-/*
-Simple user console
-Can be used on any Arduino compatible board
-V1.0.1 2019-12-19
-*/
 #include <Arduino.h>
 #include "console.h"
+
+// https://github.com/akoro/Console
+// 2019-12-12
 
 void Console::run(void)
 {
   if(dev->available())
   {
     char c = dev->read();
-    if(c >= ' ' && c < 127) // command line input
+    if(c>=' ' && c<127) // ввод команды
     {
       line += c;
-      dev->write(c);
+      if(echo) dev->write(c);
     }
-    else if(c == '\r')  // command accepted,
+    else if(c == '\r')  // команда принята,
     {
       dev->write("\r\n");
       line.trim();
       if(!line.isEmpty())
-        parse();        // command parsing
+        parse();        // разбор команды
       line.clear();
       dev->write(prompt.c_str());
     }
-    else if(!line.isEmpty() && (c == '\b' || c == 127)) // backspace
+    else if(!line.isEmpty() && (c == '\b' || c == 127)) // забой
     {
       line.remove(line.length()-1);
-      dev->write("\b \b");
+      if(echo) dev->write("\b \b");
     }
   }
 }
@@ -40,7 +38,7 @@ void Console::parse(void)
   cmd.trim();
   if(handlers.find(cmd) != handlers.end())
   {
-    String args = (i != -1) ? line.substring(i) : "";
+    String args = line.substring(line.indexOf(' '));
     args.trim();
     ArgList pl(&args);
     (*handlers[cmd])(pl, *dev);
@@ -51,13 +49,6 @@ void Console::parse(void)
     else
       dev->println("?");
 }
-
-void Console::cmdList(void)
-{
-    for(auto i: handlers)
-      dev->println(i.first);
-}
-
 
 String ArgList::getNextArg(char del)
 {
