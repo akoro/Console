@@ -3,6 +3,8 @@
 
 // https://github.com/akoro/Console
 // 2019-12-12
+// 2020-09-20 virtual functions, added begin()
+// 2020-12-01 added ST STM32 platform
 
 void Console::run(void)
 {
@@ -18,12 +20,12 @@ void Console::run(void)
     {
       dev->write("\r\n");
       line.trim();
-      if(!line.isEmpty())
+      if(line.length())
         parse();        // разбор команды
-      line.clear();
+      line="";
       dev->write(prompt.c_str());
     }
-    else if(!line.isEmpty() && (c == '\b' || c == 127)) // забой
+    else if(line.length() && (c == '\b' || c == 127)) // забой
     {
       line.remove(line.length()-1);
       if(echo) dev->write("\b \b");

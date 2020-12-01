@@ -1,13 +1,18 @@
 # Console
 *Small user console class for embedded systems based on arduino framework (C++11)*
 
-V1.2.0
+V1.2.1
 
 Developed and tested with [PlatformIO](https://platformio.org) IDE
 ***
 Console used for parsing and handling commands from user console interface based on different interfaces (serial port, telnet etc.) It implements the next format of command line:
 
 ### `<command>[ <arg1>[ <arg2>[ ...]]]`
+
+Tested on the next platforms: 
+espressif8266
+espressif32
+ststm32
 
 Just add the files **console.cpp** and **console.h** to your project and enjoy.
 

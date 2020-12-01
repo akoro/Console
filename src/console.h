@@ -1,6 +1,7 @@
 // https://github.com/akoro/Console
 // 2019-12-12
 // 2020-09-20 virtual functions, added begin()
+// 2020-12-01 added ST STM32 platform
 
 #pragma once
 
@@ -29,11 +30,11 @@ class Console
   virtual bool begin(void){return true;}
   virtual void run(void);
   void setPrompt(const String p = DEF_PROMPT) {prompt = p;}
-  void start(void) {line.clear(); dev->println(); dev->print(prompt);}
-  bool busy(void) const {return !line.isEmpty();}
+  void start(void) {line=""; dev->println(); dev->print(prompt);}
+  bool busy(void) const {return line.length()!=0;}
   Stream& stream(void) const {return *dev;};
   Stream& operator()(void) const {return stream();}
-  void onCmd(const String& t, const Handler h){if(h != nullptr && !t.isEmpty()) handlers[t] = h;} // set handler for the command
+  void onCmd(const String& t, const Handler h){if(h != nullptr && t.length() != 0) handlers[t] = h;} // set handler for the command
   void onUnknown(HUnknown u) {unknown=u;}
 
   private:
