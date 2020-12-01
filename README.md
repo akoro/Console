@@ -10,9 +10,9 @@ Console used for parsing and handling commands from user console interface based
 ### `<command>[ <arg1>[ <arg2>[ ...]]]`
 
 Tested on the next platforms: 
-espressif8266
-espressif32
-ststm32
+- espressif8266
+- espressif32
+- ststm32
 
 Just add the files **console.cpp** and **console.h** to your project and enjoy.
 
