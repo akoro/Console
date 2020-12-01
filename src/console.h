@@ -25,7 +25,7 @@ class Console
 {
   public:
   bool echo;
-  Console(Stream* s = &Serial, bool e = true) {line.clear(); handlers.clear(); dev = s; echo = e; prompt=DEF_PROMPT; unknown = nullptr;}
+  Console(Stream* s = &Serial, bool e = true) {line=""; handlers.clear(); dev = s; echo = e; prompt=DEF_PROMPT; unknown = nullptr;}
   virtual bool begin(void){return true;}
   virtual void run(void);
   void setPrompt(const String p = DEF_PROMPT) {prompt = p;}
